@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marimba Alma Chapina - Sonidos del Corazón de Guatemala</title>
+    <style>
+        /* Fuentes de Google Fonts para un toque profesional y chapín */
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            /* Paleta de colores inspirada en textiles y paisajes guatemaltecos */
+            --color-primario: #A83A20;   /* Rojo Terracota Intenso - Tierra, pasión */
+            --color-secundario: #D4AF37; /* Dorado Sol - Brillo, calidez, riqueza */
+            --color-acento: #3B7C5E;     /* Verde Jade Oscuro - Naturaleza, serenidad */
+            --color-texto-oscuro: #2C3E50; /* Azul Oscuro Casi Negro - Elegancia, contraste */
+            --color-texto-claro: #ECF0F1; /* Gris Claro - Para fondos oscuros */
+            --color-fondo-claro: #F8F9FA; /* Blanco muy suave - Limpieza */
+            --color-fondo-seccion: #FFFFFF; /* Blanco puro para secciones */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-fondo-claro);
+            color: var(--color-texto-oscuro);
+            line-height: 1.7;
+            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces */
+        }
+
+        header {
+            background-color: var(--color-primario);
+            color: var(--color-texto-claro);
+            padding: 1.8em 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-family: 'Merriweather', serif;
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            margin-top: 8px;
+            font-weight: 300;
+        }
+
+        nav {
+            background-color: var(--color-texto-oscuro); /* Un azul oscuro que contrasta */
+            padding: 1em 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky; /* Sticky navigation */
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 18px;
+        }
+
+        nav ul li a {
+            color: var(--color-texto-claro);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden; /* Para el efecto de hover */
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-secundario); /* Línea dorada al pasar el mouse */
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-out;
+        }
+
+        nav ul li a:hover::after, nav ul li a.active::after {
+            transform: translateX(0%);
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--color-secundario); /* Texto dorado al pasar el mouse/activo */
+        }
+
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 600px; /* Mayor altura para impacto */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            /* Usar una imagen real y de alta calidad aquí */
+            background-image: url('banner.jpeg'); /* Marimba en acción, reemplaza! */
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.55); /* Overlay más oscuro para mejor legibilidad */
+        }
+
+        .hero-banner-content {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            max-width: 800px;
+        }
+
+        .hero-banner-content h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 4.2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+            line-height: 1.2;
+            color: var(--color-texto-claro);
+        }
+
+        .hero-banner-content p {
+            font-size: 1.8em;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            font-weight: 300;
+            color: var(--color-fondo-claro);
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: var(--color-fondo-seccion);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            animation: slideInUp 1s ease-out;
+        }
+
+        h2 {
+            font-family: 'Merriweather', serif;
+            color: var(--color-primario);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 3em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-acento);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease-in-out;
+            border: 3px solid var(--color-secundario); /* Marco sutil */
+        }
+
+        .section-content img:hover {
+            transform: scale(1.02);
+        }
+
+        .text-block {
+            flex: 1;
+            min-width: 320px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .text-block p {
+            margin-bottom: 1.2em;
+        }
+
+        .text-block a {
+            color: var(--color-acento);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .text-block a:hover {
+            color: var(--color-primario);
+            text-decoration: underline;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 220px; /* Altura fija para las imágenes de la galería */
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            border: 2px solid var(--color-secundario);
+        }
+
+        .image-gallery img:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin: 50px 0;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            background-color: black; /* Fondo para el video */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Estilos del formulario */
+        .form-container {
+            background-color: var(--color-fondo-seccion);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 60px auto;
+            border: 1px solid var(--color-secundario); /* Borde sutil */
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--color-primario);
+            font-size: 1.1em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
+            width: calc(100% - 24px); /* Ajuste de padding */
+            padding: 14px;
+            border: 1px solid #C0C0C0; /* Gris más suave */
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--color-acento);
+            box-shadow: 0 0 0 3px rgba(59, 124, 94, 0.2); /* Sombra suave al enfocar */
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            background-color: var(--color-acento);
+            color: var(--color-texto-claro);
+            border: none;
+            padding: 18px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .form-group button:hover {
+            background-color: #2F6A4E; /* Verde un poco más oscuro */
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--color-texto-oscuro); /* Footer oscuro */
+            color: var(--color-texto-claro);
+            text-align: center;
+            padding: 2.5em 0;
+            margin-top: 60px;
+            font-size: 0.95em;
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .hero-banner {
+                height: 400px;
+            }
+            .hero-banner-content h2 {
+                font-size: 2.8em;
+            }
+            .hero-banner-content p {
+                font-size: 1.3em;
+            }
+            nav ul li {
+                margin: 8px 10px;
+            }
+            .container {
+                width: 92%;
+                padding: 25px;
+                margin: 40px auto;
+            }
+            h2 {
+                font-size: 2.2em;
+                margin-bottom: 30px;
+            }
+            .section-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            .section-content img {
+                width: 90%;
+                max-width: 450px;
+            }
+            .text-block {
+                min-width: unset;
+                text-align: center;
+            }
+            .image-gallery {
+                grid-template-columns: 1fr; /* Una columna en móvil */
+            }
+            .image-gallery img {
+                height: 250px; /* Ajuste de altura para mejor visualización */
+            }
+            .form-container {
+                padding: 25px;
+                margin: 40px auto;
+            }
+            .form-group input, .form-group select, .form-group textarea, .form-group button {
+                width: 100%;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-banner-content h2 {
+                font-size: 2em;
+            }
+            .hero-banner-content p {
+                font-size: 1em;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            nav ul li {
+                margin: 5px 8px;
+            }
+            nav ul li a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Marimba Alma Chapina</h1>
+        <p>¡Los Sonidos del Corazón de Guatemala!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio" class="active">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#musica">Música</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio" class="hero-banner">
+        <div class="hero-banner-content">
+            <h2>Marimba Alma Chapina: Tradición que Inspira</h2>
+            <p>Donde la Cultura Guatemalteca Vive en Cada Nota</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="nosotros">
+            <h2>Nuestra Esencia y Raíces</h2>
+            <div class="section-content">
+                <img src="imgA.jpg" alt="Integrantes de la Marimba Alma Chapina" style="width: 50%; max-width: 450px;">
+                <div class="text-block">
+                    <p>La Marimba Alma Chapina no es solo una agrupación musical, es un proyecto de vida que busca **honrar y preservar la rica herencia cultural de Guatemala** a través de la música. Desde nuestros inicios, nos hemos dedicado a interpretar con pasión y maestría los sones que nos identifican como nación.</p>
+                    <p>Cada integrante de nuestra marimba es un guardián de la tradición, un artista que pone su alma en cada interpretación, creando melodías que evocan la belleza de nuestros paisajes y la calidez de nuestra gente. Nuestra trayectoria está marcada por innumerables presentaciones que han llevado el espíritu chapín a escenarios nacionales e internacionales.</p>
+                    <p>Sumérgete en la historia de nuestro instrumento nacional y descubre por qué la marimba es el corazón musical de Guatemala:</p>
+                    <p><a href="https://es.wikipedia.org/wiki/Marimba" target="_blank">Explora la Fascinante Historia de la Marimba</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="musica">
+            <h2>Melodías que Cuentan Historias</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; color: var(--color-texto-oscuro);">Déjate envolver por la riqueza sonora de nuestras interpretaciones.</p>
+            <div class="section-content">
+                <div class="text-block">
+                    <p>Nuestro repertorio es un vibrante mosaico que abarca desde los **clásicos sones tradicionales** y los emotivos valses guatemaltecos, hasta adaptaciones contemporáneas de éxitos internacionales, demostrando la increíble versatilidad de la marimba. Cada pieza es cuidadosamente seleccionada y arreglada para resaltar la profundidad y el alma de este noble instrumento.</p>
+                    <p>Estamos trabajando para pronto ofrecerte un reproductor de audio con extractos de nuestros álbumes más destacados. ¡Prepárate para una experiencia auditiva inolvidable!</p>
+                </div>
+                <img src="imgB.jpg" alt="Manos tocando la marimba, primer plano" style="width: 50%; max-width: 450px;">
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="eventos">
+            <h2>Nuestros Próximos Conciertos</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; color: var(--color-texto-oscuro);">Vive la magia de la Marimba Alma Chapina en vivo. ¡Te esperamos!</p>
+            <div class="section-content">
+                <img src="imgC.webp" alt="Marimba en un escenario, con público" style="width: 50%; max-width: 450px;">
+                <div class="text-block">
+                    <h3>¡Descubre Dónde Sonaremos Próximamente!</h3>
+                    <ul>
+                        <li>**15 de Julio, 2025:** Festival Cultural de Antigua. Parque Central, Antigua Guatemala. 19:00 hrs.</li>
+                        <li>**10 de Agosto, 2025:** Concierto de Gala "Melodías de mi Tierra". Gran Sala Efraín Recinos, Centro Cultural Miguel Ángel Asturias, Ciudad de Guatemala. 20:00 hrs.</li>
+                        <li>**25 de Septiembre, 2025:** Celebración de Independencia. Quetzaltenango (lugar por confirmar). 18:00 hrs.</li>
+                        </ul>
+                    <p>¡Síguenos en nuestras redes sociales para no perderte ninguna actualización y nuevas fechas!</p>
+                    <p>¿Planeando una visita a Guatemala? Descubre otros eventos y maravillas con el Instituto Guatemalteco de Turismo:</p>
+                    <p><a href="https://www.inguat.gob.gt/" target="_blank">Explora Eventos y Destinos con INGUAT</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria">
+            <h2>Nuestros Momentos Más Vibrantes</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; color: var(--color-texto-oscuro);">Capturamos la alegría, la pasión y la energía de cada presentación.</p>
+            <div class="image-gallery">
+                <img src="imgD.jpg" alt="Marimba Alma Chapina en escenario">
+                <img src="imgE.jpeg" alt="Detalle de las manos en la marimba">
+                <img src="imgF.jpeg" alt="Marimba tocando al aire libre">
+                <img src="imgG.jpg" alt="Primer plano de la marimba">
+                </div>
+        </section>
+
+        <section id="contacto">
+            <h2>¡Contrata la Magia de la Marimba!</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; color: var(--color-texto-oscuro);">Haz de tu evento una experiencia inolvidable con el sonido único de la Marimba Alma Chapina.</p>
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Número de Teléfono (Opcional):</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="pais">País:</label>
+                        <select id="pais" name="pais" required>
+                            <option value="">Selecciona tu país</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Mexico">México</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="USA">Estados Unidos</option>
+                            <option value="Canada">Canadá</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoEvento">Tipo de Evento:</label>
+                        <select id="tipoEvento" name="tipoEvento" required>
+                            <option value="">Selecciona el tipo de evento</option>
+                            <option value="Boda">Boda</option>
+                            <option value="Cumpleaños">Cumpleaños</option>
+                            <option value="Corporativo">Evento Corporativo</option>
+                            <option value="Cultural">Evento Cultural</option>
+                            <option value="Privado">Evento Privado</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaEvento">Fecha Tentativa del Evento:</label>
+                        <input type="date" id="fechaEvento" name="fechaEvento">
+                    </div>
+                    <div class="form-group">
+                        <label for="ubicacionEvento">Ubicación del Evento (Ciudad/Departamento):</label>
+                        <input type="text" id="ubicacionEvento" name="ubicacionEvento">
+                    </div>
+                    <div class="form-group">
+                        <label for="pasatiempos">Pasatiempos/Intereses Musicales:</label>
+                        <textarea id="pasatiempos" name="pasatiempos" rows="4" placeholder="¿Tienes alguna preferencia musical o pasatiempos que quieras compartir?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="comoConocio">¿Cómo nos conoció?:</label>
+                        <select id="comoConocio" name="comoConocio">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Redes Sociales">Redes Sociales</option>
+                            <option value="Recomendacion">Recomendación</option>
+                            <option value="Google">Búsqueda en Google</option>
+                            <option value="Evento">En un Evento</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje/Comentarios Adicionales:</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntanos más sobre tu evento y lo que necesitas."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Enviar Solicitud de Contacto</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Marimba Alma Chapina. Todos los derechos reservados. | Diseñado con el corazón en Guatemala.</p>
+        <p>Síguenos en: [Icono Facebook] [Icono Instagram] [Icono YouTube] (Placeholder para enlaces a redes sociales)</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling para la navegación
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Remover 'active' de todos los enlaces y añadirlo al clickeado
+                document.querySelectorAll('nav ul li a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Lógica para el formulario (ejemplo simple, en un entorno real se enviaría a un servidor)
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            console.log('Datos del formulario enviados:', data);
+
+            // En un entorno real, aquí usarías fetch() para enviar los datos a un servidor.
+            // Por ejemplo:
+            /*
+            fetch('/api/send-contact-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert('¡Gracias por tu mensaje! Nos pondremos en contacto pronto.');
+                    this.reset();
+                } else {
+                    alert('Hubo un problema al enviar tu mensaje: ' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error al enviar el formulario:', error);
+                alert('Hubo un problema de conexión al enviar tu mensaje. Por favor, inténtalo de nuevo.');
+            });
+            */
+
+            // Para este ejemplo, simplemente mostramos una alerta y limpiamos el formulario
+            alert('¡Gracias por tu mensaje! Hemos recibido tus datos y nos pondremos en contacto muy pronto!');
+            this.reset(); // Limpia el formulario
+        });
+
+        // Lógica para resaltar el enlace de navegación activo al hacer scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            // Offset para que la sección se active un poco antes de llegar a la parte superior
+            const offset = 150; 
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - offset) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // Asegurar que el enlace "Inicio" esté activo al cargar la página si se está en la parte superior
+        window.addEventListener('load', () => {
+            if (window.scrollY === 0) {
+                document.querySelector('nav ul li a[href="#inicio"]').classList.add('active');
+            }
+        });
+
+    </script>
+</body>
+</html>
